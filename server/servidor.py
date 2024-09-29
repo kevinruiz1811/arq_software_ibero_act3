@@ -20,7 +20,9 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     with conn:
         print(f"Conexión establecida desde {addr}")
         while True:
+            # Recibe la operación enviada desde el cliente
             data = conn.recv(1024)
+            # valida si la información es vacía
             if not data:
                 break
             operacion = data.decode()
